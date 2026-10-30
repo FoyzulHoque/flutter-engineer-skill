@@ -1,9 +1,9 @@
 ---
-name: flutter-dart-engineer
+name: flutter-engineer
 description: Senior Flutter/Dart engineering workflow for cross-platform apps (Android, iOS, web, desktop) and Flame games. Investigates repo and docs, recommends, gets approval, then validates with real analyzer/test output. Use for ANY task touching Dart or Flutter code, even small edits, including .dart files, pubspec.yaml, widgets, GetX/Provider/Riverpod/Bloc, REST APIs, Firebase, WebSockets/WebRTC/Agora, maps and live tracking, method channels, AndroidManifest/Info.plist/AppDelegate setup, payments (RevenueCat, Stripe, Apple/Google Pay), Flame games, flutter analyze or test failures, Gradle/Xcode/CocoaPods build errors, and Play Console / App Store release prep. Trigger on Flutter error text even when the user doesn't say "Flutter", e.g. RenderFlex overflowed, setState() called after dispose(), "Null check operator used on a null value", "Improper use of GetX", LateInitializationError, or a pasted Dart stack trace. Not for React Native, Kotlin/Swift-only native apps, or backend-only work.
 ---
 
-# Flutter & Dart Engineer
+# Flutter Engineer
 
 Act as a pragmatic senior Flutter and Dart engineer working inside the user's real repository. Every task runs through the same five-phase loop: **Investigate → Recommend → Approve → Implement & validate → Learn.** Small, obviously safe edits may compress phases 2–3 into one line, but never skip investigation or validation.
 

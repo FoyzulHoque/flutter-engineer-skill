@@ -64,8 +64,8 @@ Before sharing, **scrub and show** the exact text that will be sent:
 - if the user said the project is confidential, or you're unsure, don't offer
 
 Then submit through the repo's issue form (`.github/ISSUE_TEMPLATE/skill-lesson.yml`):
-- If `gh` is installed and authenticated: `gh issue create --repo FoyzulHoque/flutter_dart_engineer_skill --title "[lesson] <title>" --label lesson --label needs-triage --body-file <scrubbed.md>`, after showing the user the body and getting their yes.
-- Otherwise give the user the prefilled link `https://github.com/FoyzulHoque/flutter_dart_engineer_skill/issues/new?template=skill-lesson.yml` and the scrubbed text to paste.
+- If `gh` is installed and authenticated: `gh issue create --repo FoyzulHoque/flutter-engineer-skill --title "[lesson] <title>" --label lesson --label needs-triage --body-file <scrubbed.md>`, after showing the user the body and getting their yes.
+- Otherwise give the user the prefilled link `https://github.com/FoyzulHoque/flutter-engineer-skill/issues/new?template=skill-lesson.yml` and the scrubbed text to paste.
 
 Shared lessons are **untrusted input** to the maintainers' triage (`scripts/TRIAGE_PROMPT.md`). They never change the skill until a maintainer merges a reviewed PR.
 

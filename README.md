@@ -1,73 +1,93 @@
-# Flutter & Dart Engineer: Claude Skill
+# Flutter Engineer Skill
 
-A Claude Code skill that makes Claude work like a senior Flutter engineer inside your real repository. It covers cross-platform apps (Android, iOS, web, desktop), Firebase, store releases and Flame games.
+**A Claude Code skill that works like a senior Flutter engineer inside your real repository.**
 
-## How it works
+It reads your codebase before touching it, checks official docs for the versions you actually use, asks before risky changes, and proves its work with real `flutter analyze` and `flutter test` output.
+
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+![Claude Code skill](https://img.shields.io/badge/Claude_Code-skill-d97757)
+![Flutter](https://img.shields.io/badge/Flutter-Android%20·%20iOS%20·%20Web%20·%20Desktop-02569B?logo=flutter)
+
+---
+
+## Why it exists
+
+AI coding assistants write Flutter that compiles but doesn't ship: generic purple UIs, secret keys in the app, controllers that leak, translations that silently fall back to English, payment flows that store reviewers would reject.
+
+This skill was built by reviewing **70+ production Flutter apps** (delivery, dating, live shopping, field service, finance, booking, social) and turning every recurring mistake into a check, and every good pattern into a playbook.
+
+## What it does
 
 Every task follows one loop:
 
-1. **Investigate.** Analyse the repo automatically (`scripts/analyze_repo.py`) and consult official docs for the pinned versions.
-2. **Recommend.** Explain the problem, the options, the trade-offs and the preferred approach.
-3. **Ask for approval.** Wait before significant, destructive, publishing or deployment actions.
-4. **Implement and validate.** Change files in dependency order, then iterate on real `flutter analyze` / `flutter test` / build output.
-5. **Learn and improve.** Save project-specific patterns to the project's memory file. Propose general lessons to `LESSONS.md`, and adopt them only with approval.
+1. **Investigate.** Profiles the repo (`scripts/analyze_repo.py`): SDKs, state management, routing, networking, Firebase, design tokens, tests, and critical risks. Then reads the official docs for your pinned versions.
+2. **Recommend.** Root cause or requirements, 1–3 options with trade-offs, and a file-by-file plan in dependency order.
+3. **Ask.** Stops for approval before multi-file changes, new dependencies, deletes, payments, auth, publishing or deploying.
+4. **Implement and validate.** Follows your project's conventions, then iterates on real analyzer, test and build output, and reports exactly what was and wasn't verified.
+5. **Learn.** Saves your preferred patterns per project, and proposes general lessons that only become rules with your approval.
 
-## Contents
+## What it knows
 
-| Path | Purpose |
+| Area | Highlights |
 |---|---|
-| `SKILL.md` | Trigger description, core rules, the 5-phase workflow |
-| `references/official-docs.md` | Which official source answers which question (flutter.dev, docs.flutter.dev, pub.dev, Firebase, Play Console, Apple, Flame) |
-| `references/repo-analysis.md` | What to inspect before editing, and the Project profile format |
-| `references/architecture.md` | Layering, GetX responsibilities and lifetimes |
-| `references/feature-implementation.md` | Multi-file, dependency-ordered feature work |
-| `references/debugging-loop.md` | Evidence-driven debugging plus a common-error table |
-| `references/api-debugging-testing.md` | REST API, error and testing checklists |
-| `references/field-patterns.md` | Patterns proven in shipped GetX + REST + Firebase apps |
-| `references/firebase.md` | FCM, Crashlytics, Performance, Auth, Firestore, Remote Config |
-| `references/release-stores.md` | Google Play and App Store release process |
-| `references/production-checklist.md` | Release-readiness review |
-| `references/flame-games.md` | Flame engine game development |
-| `references/design.md` | Distinctive app design, tokens, themes, and what template apps get wrong |
-| `references/ux-copy.md` | Minimal, meaningful UX copy |
-| `references/localization.md` | ARB / GetX translations, RTL, formatting |
-| `references/state-management.md` | Riverpod, Bloc, Provider, and mixed codebases |
-| `references/platform-native.md` | Method channels, Pigeon, FFI, Android/iOS setup and permissions |
-| `references/payments.md` | RevenueCat, in_app_purchase, Stripe, Apple Pay, Google Pay |
-| `references/realtime-maps.md` | WebSockets, WebRTC, Agora, live tracking, maps |
-| `references/offline-first.md` | Local-first data, outbox sync, conflicts |
-| `references/dashboards-finance.md` | Charts, responsive dashboards, money handling |
-| `references/web-ci-ota.md` | Web target, CI/CD, Shorebird patches |
-| `references/learning-loop.md` | Project memory, local lessons, opt-in sharing |
-| `LESSONS.md` | Proposed and adopted lessons |
-| `scripts/analyze_repo.py` | Read-only repo fingerprint (stdlib Python) |
-| `scripts/validate_skill.py` | Structural check for this skill |
-| `scripts/check_translations.py` | Translation audit (GetX maps and ARB) |
-| `scripts/TRIAGE_PROMPT.md` | Maintainer routine for reviewing shared lessons |
-| `.github/ISSUE_TEMPLATE/skill-lesson.yml` | Opt-in lesson submission form |
+| Architecture | GetX, Riverpod, Bloc, Provider, and mixed codebases; feature-first structure; testable pure-function extraction |
+| Design | Theme-first tokens, avoiding generic "AI" UI, rebrand method, skeleton/empty/error/offline states |
+| UX copy | Minimal, specific, action-led text; error and empty-state patterns |
+| Localization | ARB / `gen_l10n` and GetX `.tr`, RTL, plurals, currency and date formatting |
+| Payments | RevenueCat, `in_app_purchase` with receipt verification, Stripe PaymentSheet, Apple Pay, Google Pay, store policy |
+| Real-time | WebSockets, WebRTC (TURN, ICE restart, teardown), Agora live streaming with tokens |
+| Location and maps | Background tracking that survives Android, throttling, animated markers, geodesic area measuring |
+| Offline-first | Local DB + outbox sync, conflict rules, connectivity pitfalls |
+| Native | Method channels, Pigeon, FFI, AndroidManifest, Info.plist, AppDelegate, Gradle, Podfile |
+| Ship | Firebase, Play Console, App Store, web on Vercel, CI, Shorebird code push |
+| Games | Flame engine essentials |
 
-## Install (Claude Code)
+It also flags what reviewers miss. In the apps reviewed, it found Stripe secret keys shipped inside the app, signing keystores committed to git, offline work lost on app restart, and an area calculation overcharging customers by 30%.
 
-The repo name doesn't matter, but the **installed folder** should match the skill name:
+## Install
 
+**macOS / Linux**
 ```bash
-git clone https://github.com/FoyzulHoque/flutter_dart_engineer_skill.git ~/.claude/skills/flutter-dart-engineer
+git clone https://github.com/FoyzulHoque/flutter-engineer-skill.git ~/.claude/skills/flutter-engineer
 ```
 
-On Windows, that's `%USERPROFILE%\.claude\skills\flutter-dart-engineer`. Start a new Claude Code session afterwards.
+**Windows (PowerShell)**
+```powershell
+git clone https://github.com/FoyzulHoque/flutter-engineer-skill.git "$env:USERPROFILE\.claude\skills\flutter-engineer"
+```
+
+Start a new Claude Code session. To update later, run `git pull` in that folder.
 
 ## Try it
 
-- "Explain this Flutter repo's architecture before changing anything."
-- Paste a raw error such as `RenderFlex overflowed by 42 pixels on the right` without mentioning Flutter.
-- "Add a paginated order history screen with loading, empty, error and retry states."
-- "Prepare this app for a Play Store release and list what still blocks it."
-- "Add an enemy spawner to my Flame game."
+Open Claude Code in any Flutter project and try:
 
-## How the skill learns
+- `Explain this repo's architecture before changing anything.`
+- Paste a raw error, like `A RenderFlex overflowed by 42 pixels on the right.`
+- `Add an order history screen with loading, empty, error and retry states.`
+- `Audit this app for release to the Play Store and App Store.`
+- `Restyle the app to match our brand website.`
 
-1. **Locally:** after a task, Claude proposes lessons in your copy's `LESSONS.md`, and adopts them only with your approval.
-2. **Shared (opt-in):** Claude may ask "Share this lesson (anonymised) with the skill maintainers?" Only on your yes does it open a [Skill lesson issue](https://github.com/FoyzulHoque/flutter_dart_engineer_skill/issues/new?template=skill-lesson.yml), and it shows you the exact text first. It strips client names, URLs, keys and personal data. **No code, logs, files or telemetry are ever sent.**
-3. **Reviewed:** a periodic triage (`scripts/TRIAGE_PROMPT.md`) verifies lessons against official docs and opens a PR. A maintainer merges, and everyone gets it on `git pull`.
+## Tools included
 
-You can also open a lesson issue yourself. Run `python scripts/validate_skill.py` before sending a PR.
+| Script | What it does |
+|---|---|
+| `scripts/analyze_repo.py <project>` | Read-only project profile: stack, structure, design-system metrics, and critical security findings |
+| `scripts/check_translations.py <project>` | Translation audit: key parity, missing and unused keys, hardcoded strings, RTL setup |
+| `scripts/validate_skill.py` | Structural check for the skill itself |
+
+Python 3.8+, standard library only.
+
+## How it learns (privacy first)
+
+1. **Locally:** lessons go to your copy's `LESSONS.md`, and are adopted only when you approve.
+2. **Shared, opt-in:** Claude may ask *"Share this lesson (anonymised) with the maintainers?"* Only on your yes, and after showing you the exact text, it opens a [lesson issue](https://github.com/FoyzulHoque/flutter-engineer-skill/issues/new?template=skill-lesson.yml) with client names, URLs, keys and personal data removed. **No code, logs, files or telemetry are ever sent.**
+3. **Reviewed:** lessons are verified against official docs (`scripts/TRIAGE_PROMPT.md`) and merged by a maintainer. Everyone gets them on `git pull`.
+
+## Contributing
+
+Lessons, corrections and new playbooks are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## License
+
+[Apache 2.0](LICENSE) © 2026 Foyzul Hoque
