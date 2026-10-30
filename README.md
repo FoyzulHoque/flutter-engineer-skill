@@ -42,7 +42,7 @@ Every task follows one loop:
 | Ship | Firebase, Play Console, App Store, web on Vercel, CI, Shorebird code push |
 | Games | Flame engine essentials |
 
-It also flags what reviewers miss. In the apps reviewed, it found Stripe secret keys shipped inside the app, signing keystores committed to git, offline work lost on app restart, and an area calculation overcharging customers by 30%.
+It also flags what reviewers miss. In the apps reviewed, it found Stripe secret keys shipped inside the app, signing keystores committed to git, offline work lost on app restart, and a map tool overstating property area by 30%.
 
 ## Install
 
