@@ -1,0 +1,67 @@
+name: Skill lesson
+description: Share a reusable Flutter lesson learned while using this skill. No client code, names, URLs or secrets.
+title: "[lesson] "
+labels: ["lesson", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Lessons are reviewed before anything changes in the skill. Keep it generic. Someone with no access to your project should understand it.
+  - type: input
+    id: title
+    attributes:
+      label: Lesson in one line
+      placeholder: "connectivity_plus >= 6 returns a List, so == ConnectivityResult.none is always false"
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: What happened
+      description: The situation, generically. No client names, URLs, keys or proprietary code.
+    validations:
+      required: true
+  - type: textarea
+    id: lesson
+    attributes:
+      label: The reusable rule
+      description: What the skill should do or check next time. A short generic snippet is fine.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Evidence
+      description: Official doc URL, changelog, or "observed in a production app".
+    validations:
+      required: true
+  - type: dropdown
+    id: target
+    attributes:
+      label: Which part of the skill
+      options:
+        - SKILL.md (core rules)
+        - architecture / state-management
+        - feature-implementation / debugging-loop
+        - api-debugging-testing
+        - design / ux-copy / localization
+        - firebase / payments / realtime-maps
+        - offline-first / dashboards-finance
+        - platform-native / web-ci-ota / release-stores
+        - flame-games
+        - scripts (analyze_repo / check_translations)
+        - not sure
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions (if relevant)
+      placeholder: "Flutter 3.35, connectivity_plus 7.0.0"
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Confirmation
+      options:
+        - label: This contains no client names, URLs, credentials, personal data or proprietary code, and I'm allowed to share it.
+          required: true
