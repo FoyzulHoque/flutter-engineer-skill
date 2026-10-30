@@ -3,7 +3,7 @@
 Description:
 A Claude Code skill that works like a senior Flutter engineer: reads your repo first, checks official docs, asks before risky changes, and validates with real analyzer and test output.
 
-Website: (leave blank or link the LinkedIn post)
+Website: https://foyzulhoque.com.bd/
 
 Topics:
 claude, claude-code, claude-skills, agent-skills, anthropic, flutter, dart, flutter-development, getx, riverpod, firebase, mobile-development, ai-coding, developer-tools

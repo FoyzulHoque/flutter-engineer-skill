@@ -88,6 +88,10 @@ Python 3.8+, standard library only.
 
 Lessons, corrections and new playbooks are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Author
+
+Built by **Foyzul Hoque**, a Flutter developer. More work at [foyzulhoque.com.bd](https://foyzulhoque.com.bd/).
+
 ## License
 
-[Apache 2.0](LICENSE) © 2026 Foyzul Hoque
+[Apache 2.0](LICENSE) © 2026 [Foyzul Hoque](https://foyzulhoque.com.bd/)
